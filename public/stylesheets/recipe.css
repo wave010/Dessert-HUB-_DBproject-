@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+footer {
+    background-color: #ECEFF1;
+}
+#section1 {
+    background-color: #21D192
+}
+.hr {
+    width: 60px; 
+    background-color: #7c4dff; 
+    height: 2px;
+}
+#last-box {
+    margin-left: 100px;
+}
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
