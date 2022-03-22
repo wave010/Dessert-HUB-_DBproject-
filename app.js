@@ -1,6 +1,7 @@
 var mongoose = require('mongoose')
 var createError = require('http-errors');
 var express = require('express');
+const app = express();
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -13,7 +14,7 @@ var registerRouter = require('./routes/register');
 var reviewRouter = require('./routes/review');
 var addrecipeRouter = require('./routes/addrecipe')
 
-var app = express();
+
 var session = require('express-session')
 
 mongoose.connect('mongodb+srv://admin:3000@cluster0.szqjx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority').then((
