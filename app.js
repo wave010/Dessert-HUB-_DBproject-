@@ -11,6 +11,7 @@ var detailRouter = require('./routes/detail');
 var recipeRouter = require('./routes/recipe');
 var registerRouter = require('./routes/register');
 var reviewRouter = require('./routes/review');
+var addrecipeRouter = require('./routes/addrecipe')
 
 var app = express();
 var session = require('express-session')
@@ -46,6 +47,7 @@ app.use('/detail', detailRouter);
 app.use('/recipe', recipeRouter);
 app.use('/register', registerRouter);
 app.use('/review', reviewRouter);
+app.use('/addrecipe', addrecipeRouter);
 
 
 
