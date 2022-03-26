@@ -17,25 +17,21 @@
       <%- include('nav.ejs') %> <!-- Nav bar -->
         <div class="container register-box">
             <h1 class="text-center mt-5">Register</h1>
-            <form>
+            <form id="reg-form">
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Put your email">
+                  <label for="Email" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Put your email">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input type="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+                    <label for="Username" class="form-label">Username</label>
+                    <input type="username" class="form-control" id="Username" aria-describedby="UsernameHelp" placeholder="Username">
                   </div>
                 <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  <label for="Password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="Password" placeholder="Password">
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password-Again</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Put your password again">
-                  </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+                <button type="submit"  value="Submit Form" class="btn btn-primary">Submit</button>
+                </form>
         </div>
         <!-- footer -->
         <%- include('footer.ejs') %>

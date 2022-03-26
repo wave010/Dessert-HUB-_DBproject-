@@ -6,12 +6,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var aboutRouter = require('./routes/about'); //creat route about
-var detailRouter = require('./routes/detail');
-var recipeRouter = require('./routes/recipe');
-var registerRouter = require('./routes/register');
-var reviewRouter = require('./routes/review');
+var indexRouter     = require('./routes/index');
+var aboutRouter     = require('./routes/about'); //creat route about
+var detailRouter    = require('./routes/detail');
+var recipeRouter    = require('./routes/recipe');
+var registerRouter  = require('./routes/register');
+var reviewRouter    = require('./routes/review');
 var addrecipeRouter = require('./routes/addrecipe')
 
 
@@ -49,7 +49,6 @@ app.use('/recipe', recipeRouter);
 app.use('/register', registerRouter);
 app.use('/review', reviewRouter);
 app.use('/addrecipe', addrecipeRouter);
-
 
 
 // catch 404 and forward to error handler
