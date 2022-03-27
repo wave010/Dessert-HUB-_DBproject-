@@ -9,6 +9,10 @@ const RecipeSchema = new mongoose.Schema({
         type:String,
         required: true
     },
+    diffselect:{
+        type:String,
+        required: true
+    },
     ingredient:{
         type:String,
         required: true
