@@ -66,6 +66,7 @@ router.post("/", function(req, res ,next) {
                 newUser.password = hash;
                 //Save User
                 newUser.save().then(user => {
+                  req.flash('success_msg', 'You are now register and can login');
                   res.redirect('/');
                 }).catch(err => console.log(err));
             }))

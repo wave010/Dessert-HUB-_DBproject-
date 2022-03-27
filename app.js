@@ -6,16 +6,23 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const flash = require('connect-flash');
+var session = require('express-session');
+
 var indexRouter     = require('./routes/index');
 var aboutRouter     = require('./routes/about'); //creat route about
 var detailRouter    = require('./routes/detail');
 var recipeRouter    = require('./routes/recipe');
 var registerRouter  = require('./routes/register');
 var reviewRouter    = require('./routes/review');
-var addrecipeRouter = require('./routes/addrecipe')
+var addrecipeRouter = require('./routes/addrecipe');
+//const passport = require('./config/passport');
+const passport = require('passport');
+
+//passprot config
+require('./config/passport')(passport);
 
 
-var session = require('express-session')
 
 mongoose.connect('mongodb+srv://admin:3000@cluster0.szqjx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority').then((
 )=>{console.log('connect to DB')}
@@ -32,11 +39,27 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Express Session
 app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-}))
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
+
+//Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Connect flash
+app.use(flash());
+
+//Global Vars
+app.use(function(req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+});
 
 app.use(require('connect-flash')());
 app.use(function (req, res, next) {
