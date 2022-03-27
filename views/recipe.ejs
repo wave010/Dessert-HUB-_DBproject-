@@ -35,17 +35,31 @@
             <!--end of col-->
         </div>
         </div>
-        <!-- Get data from collection mongodb -->
+
+<div class="wrapper-recipe">
+
+
+        <div class="recipe-container">
+         <!-- Get data from collection mongodb -->
         <% recipe.forEach(recipe =>{ %>
-            <img src=<%= recipe.imgurl %>>
-            <p>ชื่อขนมหวาน: <%= recipe.dessertname %> </p>
+            <div class="recipe-box">
+            <center> <img class="recipe-img" src=<%= recipe.imgurl %>></center>
+            <p class="recipe-name">ชื่อขนมหวาน: <%= recipe.dessertname %> </p>
             <p>หมวดหมู่: <%= recipe.category %></p>
             <P>ความนยาก: <%= recipe.diffselect %></P>
             <p>ส่วนผสม:</p>
             <p><%= recipe.ingredient %></p>
             <p>วิธีทำ:</p>
             <p><%= recipe.howto %></p>
-        <%}) %>
+            </div>
+        <%}) %>   
+        </div>
+  </div>      
+
+
+
+
+
         <!--footer -->
         <%- include('footer.ejs') %>
     </body>
