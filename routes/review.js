@@ -1,17 +1,14 @@
 var express = require('express');
 const router = express.Router();
-const mongoose1 = require('mongoose');
+const mongoose = require('mongoose');
 const { check ,validationResult, body} = require('express-validator');
 const controllers = require("../controllers/review");
 
 
-mongoose1.connect("mongodb+srv://admin:3000@cluster0.szqjx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority").then(() => {
-  console.log(":: Connected from review");
-});
 const reviewSchema ={
     RevDetail:String
 }
-const NewReview = mongoose1.model("Review",reviewSchema)
+const NewReview = mongoose.model("Review",reviewSchema)
 router.get("/", controllers.getReview);
 router.post("/",
     body("textarea1").not().isEmpty()

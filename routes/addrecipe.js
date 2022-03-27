@@ -1,12 +1,12 @@
 var express = require('express');
 const router = express.Router();
-const mongoose1 = require('mongoose');
+const mongoose = require('mongoose');
 const { check ,validationResult, body} = require('express-validator');
 const controllers = require("../controllers/addrecipe");
 
-mongoose1.connect("mongodb+srv://admin:3000@cluster0.szqjx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority").then(() => {
-  console.log(":: Connected from addrecipe");
-});
+// mongoose1.connect("mongodb+srv://admin:3000@cluster0.szqjx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority").then(() => {
+//   console.log(":: Connected from addrecipe");
+// });
 const recipeSchema ={
     RecName:String,
     RecDiff:String,
@@ -15,7 +15,7 @@ const recipeSchema ={
     RecImg:String
 
 }
-const NewRecipe = mongoose1.model("Recipe",recipeSchema)
+const NewRecipe = mongoose.model("Recipe",recipeSchema)
 router.get("/", controllers.getAddrecipe);
 router.post("/",
     body("dessertname1").not().isEmpty(),
