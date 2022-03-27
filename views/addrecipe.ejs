@@ -19,35 +19,40 @@
         <div class="container ">
             <blockquote>
                 <h2 class="text-center mt-5 mb-3">Add Recipe</h2>
+                <%- include('./partials/messages') %>
             </blockquote>
             <div class="container">
                 <form method="post">
                     <div class="mb-3">
-                        <label for="DessertName1" class="form-label">Dessert Name</label>
-                        <input type="text" class="form-control" name="dessertname1" id="DessertName1" >
+                        <label for="DessertName" class="form-label">Dessert Name</label>
+                        <input type="text" class="form-control" name="dessertname" id="dessertname" value="<%= typeof dessertname != 'undefined' ? dessertname : '' %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="category" class="form-label">category</label>
+                        <input type="text" class="form-control" name="category" id="category1" value="<%= typeof category != 'undefined' ? category : '' %>">
                     </div>
                     <div class="mb-3">
                         <label for="Difficult" class="form-label">Difficults select</label>
-                        <select class="form-control" name="diffselect" id="exampleFormControlSelect1">
+                        <select class="form-control" name="diffselect" id="exampleFormControlSelect1" value="<%= typeof diffselect != 'undefined' ? diffselect : '' %>">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
                         </select>
                      </div>
                       <div class="mb-3">
-                        <label for="IngredientTextarea1" class="form-label">Ingredient</label>
-                        <textarea class="form-control" id="IngredientTextarea1" name="ingredient1" rows="3"></textarea>
+                        <label for="IngredientTextarea" class="form-label">Ingredient</label>
+                        <textarea class="form-control" id="IngredientTextarea" name="ingredient" rows="3" value="<%= typeof ingredient != 'undefined' ? ingredient : '' %>"></textarea>
                     </div>
                         
                     <div class="mb-3">
-                        <label for="StepTextarea1" class="form-label">How to make?</label>
-                        <textarea class="form-control" id="StepTextarea1" name="howto" rows="3"></textarea>
+                        <label for="StepTextarea" class="form-label">How to make?</label>
+                        <textarea class="form-control" id="StepTextarea" name="howto" rows="3" value="<%= typeof howto != 'undefined' ? howto : '' %>"></textarea>
                     </div>
                     <div class="mb-3">
                        <label for="imgurl" class="form-label">Image url</label>
-                        <input type="text" class="form-control" name="imgurl1" id="imgurl" >
+                        <input type="text" class="form-control" name="imgurl" id="imgurl"  value="<%= typeof imgurl != 'undefined' ? imgurl : '' %>">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Add Recipe</button>
                 </form>
             </div>
         </div>
