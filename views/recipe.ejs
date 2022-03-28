@@ -15,47 +15,24 @@
     </head>
     <body>
       <%- include('nav.ejs') %> <!-- Nav bar -->
-        <div class="container text-center">
-          <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-8">
-                <form class="card card-sm">
-                    <div class="card-body row no-gutters align-items-center">
-                        <!--end of col-->
-                        <div class="col">
-                            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search">
-                        </div>
-                        <!--end of col-->
-                        <div class="col-auto">
-                            <button class="btn btn-lg btn-success" type="submit">Search</button>
-                        </div>
-                        <!--end of col-->
+        <div class="wrapper-recipe">
+                <div class="recipe-container">
+            
+                <!-- Get data from collection mongodb -->
+                <% recipe.forEach(recipe =>{ %>
+                    <div class="recipe-box">
+                    <center> <img class="recipe-img" src=<%= recipe.imgurl %>></center>
+                    <p class="recipe-name">ชื่อขนมหวาน: <%= recipe.dessertname %> </p>
+                    <p>หมวดหมู่: <%= recipe.category %></p>
+                    <P>ความนยาก: <%= recipe.diffselect %></P>
+                    <p>ส่วนผสม:</p>
+                    <p><%= recipe.ingredient %></p>
+                    <p>วิธีทำ:</p>
+                    <p><%= recipe.howto %></p>
                     </div>
-                </form>
-            </div>
-            <!--end of col-->
-        </div>
-        </div>
-
-<div class="wrapper-recipe">
-
-
-        <div class="recipe-container">
-       
-         <!-- Get data from collection mongodb -->
-        <% recipe.forEach(recipe =>{ %>
-            <div class="recipe-box">
-            <center> <img class="recipe-img" src=<%= recipe.imgurl %>></center>
-            <p class="recipe-name">ชื่อขนมหวาน: <%= recipe.dessertname %> </p>
-            <p>หมวดหมู่: <%= recipe.category %></p>
-            <P>ความนยาก: <%= recipe.diffselect %></P>
-            <p>ส่วนผสม:</p>
-            <p><%= recipe.ingredient %></p>
-            <p>วิธีทำ:</p>
-            <p><%= recipe.howto %></p>
-            </div>
-        <%}) %>   
-        </div>
-  </div>      
+                <%}) %>   
+                </div>
+        </div>      
 
 
 

@@ -30,8 +30,11 @@
                 </div>
             </form>
             <% Newreview.forEach(Newreview => { %>
-              <p><%= Newreview.RevDetail %></p>
-              <p><%= Newreview.date %></p>
+              <div class="container   review-box ">
+                <p><i class="fa-solid fa-comments"></i></p>
+                <p class="text-left"><%= Newreview.RevDetail %></p>
+                <p class="text-right time"><%= Newreview.date %></p>
+              </div>
             <% }) %>
         </div>
         <!--footer -->
