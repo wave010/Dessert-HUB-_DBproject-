@@ -14,8 +14,9 @@ router.get("/", ensureAuthenticated, function (req, res, next) {
       if (!err) {
         res.render("recipe", {
           recipe: recipe,
-          name: name
+          user: name
         });
+      
       } else {
         console.log("Failed to retrueve");
       }

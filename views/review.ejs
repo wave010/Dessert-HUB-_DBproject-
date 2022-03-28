@@ -29,6 +29,10 @@
                   </div>
                 </div>
             </form>
+            <% Newreview.forEach(Newreview => { %>
+              <p><%= Newreview.RevDetail %></p>
+              <p><%= Newreview.date %></p>
+            <% }) %>
         </div>
         <!--footer -->
         <%- include('footer.ejs') %>

@@ -2,14 +2,38 @@ var express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const { check ,validationResult, body} = require('express-validator');
-const controllers = require("../controllers/review");
+// const controllers = require("../controllers/review");
+const { ensureAuthenticated } = require("../config/auth");
+
 
 
 const reviewSchema ={
-    RevDetail:String
+    RevDetail:{
+        type:String,
+        required: true
+    },
+    date:{
+        type:Date,
+        default:Date.now
+    }
 }
 const NewReview = mongoose.model("Review",reviewSchema)
-router.get("/", controllers.getReview);
+
+
+router.get("/",ensureAuthenticated, function(req, res, next){
+    NewReview.find((err, review)=>{
+        if(!err){
+            res.render('review',{
+                Newreview : review
+            });
+        }else{
+            console.log("Failed to retrueve")
+        }
+    })
+});
+
+
+
 router.post("/",
     body("textarea1").not().isEmpty()
 ,function(req,res,next){
