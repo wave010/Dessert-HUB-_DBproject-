@@ -8,7 +8,7 @@ const recipe = require("../models/addrecipe");
 const user = require("../models/User");
 
 
-router.get("/", ensureAuthenticated, function (req, res, next) {
+router.get("/", function (req, res, next) {
   recipe.find((err, recipe) => {
     user.find((err, name) => {
       if (!err) {
